@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Hotel Website</title>
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <!-- swiper js cdn link -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- custom css link -->
+   <link rel="stylesheet" href="style.css">
+   <link rel="icon" href= "kTree.png"  type="image/x-icon"> 
+</head>
+<body>
+
+   <!-- header -->
+
+   <header class="header">
+
+    <div>
+        <h1 id="logo">
+            <a href="index.html">
+                <img src="https://www.hotelktree.com/images/logo.png">
+            </a>
+        </h1>
+
+        <nav class="navbar">
+            <a href="about_us.html">About</a>
+             <a href="amenities.html">Amenities</a>
+             <a href="Accommodation.html">Accommodaton</a>
+             <a href="How_To_Reach.html">How To Reach</a>
+             <a href="Photo_Gallery.html">gallery</a>
+             <a href="Restaurant.html">Restaurant</a>
+             <a href="#faq">Feedback</a>
+             <a href="Book.html" class="btn"> book now</a></h2>
+          </nav>
+     </div>
+
+      <div id="menu-btn" class="fas fa-bars"></div>
+
+   </header>
+
+   <!-- end -->
+
+   <!-- home -->
+
+   <section class="home" id="home">
+
+      <div class="swiper home-slider">
+
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide" style="background: url(https://www.hotelktree.com/images/headers/contact-us/img01.jpg) no-repeat;">
+              
+            </div>
+
+            <div class="swiper-slide slide" style="background: url(https://www.hotelktree.com/images/headers/contact-us/img02.jpg) no-repeat;">
+           
+            </div>
+
+            <div class="swiper-slide slide" style="background: url(https://www.hotelktree.com/images/headers/contact-us/img03.jpg) no-repeat;">
+              
+            </div>
+
+
+         </div>
+
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+
+      </div>
+
+   </section>
+   <div class="homepage">
+    <div class="t">
+        <br>
+    <h2 class="title-anchor">contact-us</h2>
+    <p>
+        <b>K Tree</b><br>
+        <br>
+        65 E, Shivaji Park, Kolhapur 416001, Maharashtra, India. <br><br>  
+        <b>Phone : </b>+91 231 2526990 / 2527990<br><br>
+        <b>E-mail : </b><a href="mailto:info@hotelktree.com" class="line">info@hotelktree.com</a>
+    </p>
+    </div>
+   </div>
+
+   <section class="reservation" id="reservation">
+
+    <h1 class="heading">book now</h1>
+
+    <form action="">
+
+       <div class="container">
+
+          <div class="box">
+             <p>name <span>*</span></p>
+             <input type="text" class="input" placeholder="Your Name">
+          </div>
+
+          <div class="box">
+             <p>Email <span>*</span></p>
+             <input type="text" class="input" placeholder="Your Email">
+          </div>
+
+          <div class="box">
+            <p>Address <span>*</span></p>
+            <input type="text" class="input" placeholder="Enter The Address">
+         </div>
+
+         <div class="box">
+            <p>City <span>*</span></p>
+            <input type="text" class="input" placeholder="Enter The City">
+         </div>
+
+         <div class="box">
+            <p>State <span>*</span></p>
+            <input type="text" class="input" placeholder="Enter The State">
+         </div>
+
+         <div class="box">
+            <p>Contact Number <span>*</span></p>
+            <input type="text" class="input" placeholder="Contact Number">
+         </div>
+
+         <div class="box">
+            <p>Number of People <span>*</span></p>
+            <input type="text" class="input" placeholder="Number Of People">
+         </div>
+          
+
+          <div class="box">
+             <p>rooms <span>*</span></p>
+             <select name="rooms" class="input">
+                <option value="1">1 rooms</option>
+                <option value="2">2 rooms</option>
+                <option value="3">3 rooms</option>
+                <option value="4">4 rooms</option>
+                <option value="5">5 rooms</option>
+                <option value="6">6 rooms</option>
+             </select>
+          </div>
+
+          <div class="box">
+             <p>room type <span>*</span></p>
+             <select name="type" class="input">
+                <option value="1">exclusive rooms</option>
+                <option value="2">family rooms</option>
+                <option value="3">daily rooms</option>
+                <option value="4">panoramic rooms</option>
+             </select>
+          </div>
+          
+          <div class="box">
+            <p>Arrival Date<span>*</span></p>
+            <input type="date" class="input">
+         </div>
+
+         <div class="box">
+            <p>Departure Date<span>*</span></p>
+            <input type="date" class="input">
+         </div>
+       </div>
+
+       <input type="submit" value="check availability" class="btn">
+
+    </form>
+
+ </section>
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+   <script src="script.js"></script>
+
+</body>
+</html>

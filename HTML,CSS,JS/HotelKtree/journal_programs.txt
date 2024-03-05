@@ -1,0 +1,856 @@
+
+
+===========================================================
+
+// 1. Write a java program to print fibonacci series
+
+import java.util.Scanner;
+public class q1 {
+  public static void main(String[] args) {
+    Scanner obj = new Scanner(System.in);
+    System.out.print("Enter the number of terms in the Fibonacci series: ");
+    int n = obj.nextInt();
+    obj.close();
+
+    int firstTerm = 0;
+    int secondTerm = 1;
+
+    System.out.print("Fibonacci Series (First " + n + " terms): ");
+
+    if (n >= 1) {
+      System.out.print(firstTerm);
+    }
+    if (n >= 2) {
+      System.out.print(", " + secondTerm);
+    }
+
+    for (int i = 3; i <= n; i++) {
+      int nextTerm = firstTerm + secondTerm;
+      System.out.print(", " + nextTerm);
+      firstTerm = secondTerm;
+      secondTerm = nextTerm;
+    }
+
+    System.out.println();
+  }
+}
+
+
+===========================================================
+
+// 2. Write a java program to define the given no. of series is either even or
+// odd.
+
+import java.util.Scanner;
+public class q2 {
+  public static void main(String args[]) {
+    // take input from the user
+    // create new instance of scanner classs
+    Scanner scan = new Scanner(System.in);
+    System.out.print("Enter the number: ");
+    int num = scan.nextInt();
+    System.out.println("Given number " + num + " is " +
+                       ((num % 2 == 0) ? "even" : "odd"));
+  }
+}
+
+
+===========================================================
+
+// 3. Write a java program to print all armstrong numbers
+
+import java.util.Scanner;
+
+public class q3 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the upper limit to find Armstrong numbers: ");
+    int upperLimit = scanner.nextInt();
+    scanner.close();
+
+    System.out.println("Armstrong numbers in the range 1 to " + upperLimit +
+                       ":");
+    for (int i = 1; i <= upperLimit; i++) {
+      if (isArmstrong(i)) {
+        System.out.println(i);
+      }
+    }
+  }
+
+  public static boolean isArmstrong(int number) {
+    int originalNumber = number;
+    int numDigits = countDigits(number);
+    int sum = 0;
+
+    while (number > 0) {
+      int digit = number % 10;
+      sum += Math.pow(digit, numDigits);
+      number /= 10;
+    }
+
+    return sum == originalNumber;
+  }
+
+  public static int countDigits(int number) {
+    int count = 0;
+    while (number > 0) {
+      number /= 10;
+      count++;
+    }
+    return count;
+  }
+}
+
+
+===========================================================
+
+// 4. Write a program for entering array elements from use and print the sum of
+// given elements and provide average of it.
+
+import java.util.Scanner;
+
+public class q4 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the number of elements in the array: ");
+    int n = scanner.nextInt();
+
+    int[] arr = new int[n];
+
+    System.out.println("Enter the elements of the array:");
+    for (int i = 0; i < n; i++) {
+      System.out.print("Element " + (i + 1) + ": ");
+      arr[i] = scanner.nextInt();
+    }
+
+    scanner.close();
+
+    int sum = 0;
+    for (int num : arr) {
+      sum += num;
+    }
+
+    double average = (double)sum / n;
+
+    System.out.println("Array elements: ");
+    for (int num : arr) {
+      System.out.print(num + " ");
+    }
+
+    System.out.println("\nSum of the elements: " + sum);
+    System.out.println("Average of the elements: " + average);
+  }
+}
+
+
+===========================================================
+
+// 5. Write a java program to print left arrow pattern
+
+import java.util.Scanner;
+
+public class q5 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the number of rows for the left arrow pattern: ");
+    int n = scanner.nextInt();
+    scanner.close();
+
+    for (int i = 1; i <= n; i++) {
+      for (int j = n; j > i; j--) {
+        System.out.print(" ");
+      }
+      for (int k = 1; k <= i; k++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j < i; j++) {
+        System.out.print(" ");
+      }
+      for (int k = n; k >= i; k--) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+  }
+}
+
+
+===========================================================
+
+// 6. Write a java program to print inverse star pattern
+
+import java.util.Scanner;
+
+public class q6 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the number of rows for the inverse star pattern: ");
+    int n = scanner.nextInt();
+    scanner.close();
+
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j < i; j++) {
+        System.out.print(" ");
+      }
+      for (int k = i; k <= n; k++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+  }
+}
+
+
+===========================================================
+
+// 7. Write a program using method overriding
+
+class Animal {
+  void makeSound() { System.out.println("The animal makes a generic sound."); }
+}
+
+class Dog extends Animal {
+  @Override
+  void makeSound() {
+    System.out.println("The dog barks.");
+  }
+}
+
+class Cat extends Animal {
+  @Override
+  void makeSound() {
+    System.out.println("The cat meows.");
+  }
+}
+
+public class q7 {
+  public static void main(String[] args) {
+    Animal animal = new Animal();
+    Animal dog = new Dog();
+    Animal cat = new Cat();
+
+    animal.makeSound();
+    dog.makeSound();
+    cat.makeSound();
+  }
+}
+
+
+===========================================================
+
+// 8. Calculate students marks of 5 subjects, totoal and percentage
+
+import java.util.Scanner;
+
+public class q8 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Enter the marks for 5 subjects:");
+
+    int totalMarks = 0;
+    for (int i = 1; i <= 5; i++) {
+      System.out.print("Subject " + i + ": ");
+      int marks = scanner.nextInt();
+      totalMarks += marks;
+    }
+
+    scanner.close();
+
+    double percentage = (double)totalMarks / 5;
+
+    System.out.println("Total Marks: " + totalMarks);
+    System.out.println("Percentage: " + percentage + "%");
+  }
+}
+
+
+===========================================================
+
+// 9. Write a program using parameterized constructor
+
+class Student {
+  private String name;
+  private int age;
+
+  public Student(String studentName, int studentAge) {
+    name = studentName;
+    age = studentAge;
+  }
+
+  public void displayInfo() {
+    System.out.println("Name: " + name);
+    System.out.println("Age: " + age);
+  }
+}
+
+public class q9 {
+  public static void main(String[] args) {
+    Student student1 = new Student("Ishwari", 20);
+    Student student2 = new Student("Kashish", 22);
+
+    System.out.println("Student 1 Information:");
+    student1.displayInfo();
+
+    System.out.println("\nStudent 2 Information:");
+    student2.displayInfo();
+  }
+}
+
+
+===========================================================
+
+// 10. Implement multi level inheritance to define various shaped and to
+// calculate area of that shape
+
+import java.util.Scanner;
+
+class Shape {
+  void display() { System.out.println("This is a shape."); }
+}
+
+class Circle extends Shape {
+  double radius;
+
+  Circle(double r) { radius = r; }
+
+  double calculateArea() { return Math.PI * radius * radius; }
+
+  void display() {
+    super.display();
+    System.out.println("This is a circle with radius " + radius);
+    System.out.println("Area of the circle: " + calculateArea());
+  }
+}
+
+class Square extends Shape {
+  double side;
+
+  Square(double s) { side = s; }
+
+  double calculateArea() { return side * side; }
+
+  void display() {
+    super.display();
+    System.out.println("This is a square with side length " + side);
+    System.out.println("Area of the square: " + calculateArea());
+  }
+}
+
+public class q10 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the radius of the circle: ");
+    double circleRadius = scanner.nextDouble();
+
+    System.out.print("Enter the side length of the square: ");
+    double squareSide = scanner.nextDouble();
+
+    scanner.close();
+
+    Circle circle = new Circle(circleRadius);
+    Square square = new Square(squareSide);
+
+    System.out.println("\nShape Information:");
+    circle.display();
+    square.display();
+  }
+}
+
+
+===========================================================
+
+// 11. Implement hieracchical inheritance in Java
+
+class Vehicle {
+  void start() { System.out.println("Vehicle is starting."); }
+}
+
+class Car extends Vehicle {
+  void accelerate() { System.out.println("Car is accelerating."); }
+}
+
+class Motorcycle extends Vehicle {
+  void wheelie() { System.out.println("Motorcycle is doing a wheelie."); }
+}
+
+public class q11 {
+  public static void main(String[] args) {
+    Car car = new Car();
+    Motorcycle motorcycle = new Motorcycle();
+
+    System.out.println("Car:");
+    car.start();
+    car.accelerate();
+
+    System.out.println("\nMotorcycle:");
+    motorcycle.start();
+    motorcycle.wheelie();
+  }
+}
+
+
+===========================================================
+
+// 12. Write a program for extending interfaces
+
+interface Shape {
+  void draw();
+}
+
+interface Color {
+  void applyColor();
+}
+
+class Circle implements Shape, Color {
+  @Override
+  public void draw() {
+    System.out.println("Drawing a circle.");
+  }
+
+  @Override
+  public void applyColor() {
+    System.out.println("Applying color to the circle.");
+  }
+}
+
+public class q12 {
+  public static void main(String[] args) {
+    Circle circle = new Circle();
+    circle.draw();
+    circle.applyColor();
+  }
+}
+
+
+===========================================================
+
+// 13. Implement polymorphism in java
+
+class Animal {
+  void sound() { System.out.println("Animals make sounds"); }
+}
+
+class Dog extends Animal {
+  void sound() { System.out.println("Dogs bark"); }
+}
+
+class Cat extends Animal {
+  void sound() { System.out.println("Cats meow"); }
+}
+
+public class q13 {
+  public static void main(String[] args) {
+    Animal myPet = new Dog();
+    myPet.sound();
+
+    myPet = new Cat();
+    myPet.sound();
+  }
+}
+
+
+===========================================================
+
+// 14. Write a java program for dynamic binding
+
+class Instrument {
+  void play() { System.out.println("Playing an instrument"); }
+}
+
+class Guitar extends Instrument {
+  @Override
+  void play() {
+    System.out.println("Playing a guitar");
+  }
+}
+
+class Piano extends Instrument {
+  @Override
+  void play() {
+    System.out.println("Playing a piano");
+  }
+}
+
+public class q14 {
+  public static void main(String[] args) {
+    Instrument myInstrument = new Guitar();
+    myInstrument.play();
+
+    myInstrument = new Piano();
+    myInstrument.play();
+  }
+}
+
+
+===========================================================
+
+// 15. Implement hybrid inheritance in java
+
+interface Edible {
+  void eat();
+}
+
+interface Fruit {
+  String getName();
+}
+
+class Apple implements Edible, Fruit {
+  @Override
+  public void eat() {
+    System.out.println("Eating an apple.");
+  }
+
+  @Override
+  public String getName() {
+    return "Apple";
+  }
+}
+
+public class q15 {
+  public static void main(String[] args) {
+    Apple apple = new Apple();
+    apple.eat();
+    System.out.println("Fruit Name: " + apple.getName());
+  }
+}
+
+
+===========================================================
+
+// 16. Perform various operation on Strings
+
+public class q16 {
+  public static void main(String[] args) {
+    // Create a string
+    String text = "Hello, World!";
+
+    // 1. String Length
+    int length = text.length();
+    System.out.println("1. String Length: " + length);
+
+    // 2. Concatenation
+    String greeting = "Hello";
+    String name = "Akshay";
+    String message = greeting + ", " + name + "!";
+    System.out.println("2. Concatenation: " + message);
+
+    // 3. Character at a specific index
+    char character = text.charAt(7);
+    System.out.println("3. Character at index 7: " + character);
+
+    // 4. Substring
+    String sub = text.substring(0, 5);
+    System.out.println("4. Substring: " + sub);
+
+    // 5. Uppercase and Lowercase
+    String uppercase = text.toUpperCase();
+    String lowercase = text.toLowerCase();
+    System.out.println("5. Uppercase: " + uppercase);
+    System.out.println("   Lowercase: " + lowercase);
+
+    // 6. Checking if a string contains a substring
+    boolean contains = text.contains("World");
+    System.out.println("6. Contains 'World': " + contains);
+
+    // 7. Replace
+    String replaced = text.replace("World", "Java");
+    System.out.println("7. Replace 'World' with 'Java': " + replaced);
+
+    // 8. Split
+    String sentence = "This is a sample sentence.";
+    String[] words = sentence.split(" ");
+    System.out.print("8. Split: ");
+    for (String word : words) {
+      System.out.print(word + " ");
+    }
+    System.out.println();
+  }
+}
+
+
+===========================================================
+
+// 17. Evaluate a criteria for voting card by using if else statement.
+
+import java.util.Scanner;
+
+public class q17 {
+  public static void main(String[] args) {
+    int votingAge = 18;
+
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter your age: ");
+    int age = scanner.nextInt();
+
+    if (age >= votingAge) {
+      System.out.println("You are eligible to get a voting card.");
+    } else {
+      System.out.println("You are not eligible to get a voting card.");
+    }
+  }
+}
+
+
+===========================================================
+
+// 18. Calculate grade of students by using ladder if else statement
+
+import java.util.Scanner;
+
+public class q18 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the student's marks: ");
+    int marks = scanner.nextInt();
+
+    char grade;
+
+    if (marks >= 90) {
+      grade = 'A';
+    } else if (marks >= 80) {
+      grade = 'B';
+    } else if (marks >= 70) {
+      grade = 'C';
+    } else if (marks >= 60) {
+      grade = 'D';
+    } else {
+      grade = 'F';
+    }
+
+    System.out.println("The student's grade is: " + grade);
+  }
+}
+
+
+===========================================================
+
+// 19. Write a java progam to display different math operations
+
+import java.util.Scanner;
+
+public class q19 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the first number: ");
+    double num1 = scanner.nextDouble();
+
+    System.out.print("Enter the second number: ");
+    double num2 = scanner.nextDouble();
+
+    double sum = num1 + num2;
+    double difference = num1 - num2;
+    double product = num1 * num2;
+    double quotient = num1 / num2;
+
+    System.out.println("Sum: " + sum);
+    System.out.println("Difference: " + difference);
+    System.out.println("Product: " + product);
+    System.out.println("Quotient: " + quotient);
+  }
+}
+
+
+===========================================================
+
+// 20. Write a program to display information of 10 employees i.e id, name,
+// department, post and salary by using call by value
+
+import java.util.Scanner;
+
+class Employee {
+  int id;
+  String name;
+  String department;
+  String post;
+  double salary;
+
+  public Employee(int id, String name, String department, String post,
+                  double salary) {
+    id = id;
+    name = name;
+    department = department;
+    post = post;
+    salary = salary;
+  }
+
+  public void displayInfo() {
+    System.out.println("Employee ID: " + id);
+    System.out.println("Name: " + name);
+    System.out.println("Department: " + department);
+    System.out.println("Post: " + post);
+    System.out.println("Salary: " + salary);
+    System.out.println();
+  }
+}
+
+public class q20 {
+  public static void main(String[] args) {
+    Employee[] employees = new Employee[10];
+
+    Scanner scanner = new Scanner(System.in);
+
+    for (int i = 0; i < 10; i++) {
+      System.out.println("Enter information for Employee " + (i + 1));
+
+      System.out.print("ID: ");
+      int id = scanner.nextInt();
+      scanner.nextLine(); // Consume the newline
+
+      System.out.print("Name: ");
+      String name = scanner.nextLine();
+
+      System.out.print("Department: ");
+      String department = scanner.nextLine();
+
+      System.out.print("Post: ");
+      String post = scanner.nextLine();
+
+      System.out.print("Salary: ");
+      double salary = scanner.nextDouble();
+      scanner.nextLine(); // Consume the newline
+
+      employees[i] = new Employee(id, name, department, post, salary);
+    }
+
+    scanner.close();
+
+    System.out.println("Employee Information:");
+    for (int i = 0; i < 10; i++) {
+      employees[i].displayInfo();
+    }
+  }
+}
+
+
+===========================================================
+
+// 21. Write a program using static keyword and method
+
+public class q21 {
+  public static void main(String[] args) {
+    int result = MathUtility.add(5, 3);
+    System.out.println("The result of the addition is: " + result);
+
+    System.out.println("The value of PI is: " + MathUtility.PI);
+  }
+}
+
+class MathUtility {
+  public static int add(int a, int b) { return a + b; }
+
+  public static final double PI = 3.14159265359;
+}
+
+
+===========================================================
+
+// 22. Write a java program using final keyword and method
+
+public class q22 {
+  public static void main(String[] args) {
+    MyClass myClass = new MyClass();
+    System.out.println("Final variable value: " + myClass.myFinalVariable);
+    myClass.myFinalMethod();
+  }
+}
+
+class MyClass {
+  final int myFinalVariable = 10;
+  final void myFinalMethod() { System.out.println("This is a final method."); }
+}
+
+
+===========================================================
+
+// 23. Implement string array
+
+public class q23 {
+  public static void main(String[] args) {
+    String[] colors = {"Red", "Green", "Blue", "Yellow"};
+
+    System.out.println("Colors:");
+    for (String color : colors) {
+      System.out.println(color);
+    }
+  }
+}
+
+
+===========================================================
+
+// 24. Write a java program for swapping two numbers using third variable
+
+import java.util.Scanner;
+
+public class q24 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Enter the first number: ");
+    int num1 = scanner.nextInt();
+
+    System.out.print("Enter the second number: ");
+    int num2 = scanner.nextInt();
+
+    System.out.println("Original Numbers:");
+    System.out.println("First number: " + num1);
+    System.out.println("Second number: " + num2);
+
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+
+    System.out.println("\nSwapped Numbers:");
+    System.out.println("First number: " + num1);
+    System.out.println("Second number: " + num2);
+  }
+}
+
+
+===========================================================
+
+// 25. Implement exception handling using finally keyword
+public class q25 {
+  public static void main(String[] args) {
+    try {
+      int result = 10 / 0;
+      System.out.println("Result: " + result);
+    } catch (ArithmeticException e) {
+      System.out.println("Error: " + e.getMessage());
+    } finally {
+      System.out.println("This code always gets executed, no matter what.");
+    }
+  }
+}
+
+
+===========================================================
+
+// 26. Perform exception handling using throw
+
+public class q26 {
+  public static void main(String[] args) {
+    try {
+      int age = -5;
+      if (age < 0) {
+        // Explicitly throw an exception
+        throw new IllegalArgumentException("Age cannot be negative");
+      }
+      System.out.println("Age is: " + age);
+    } catch (IllegalArgumentException e) {
+      System.out.println("Error: " + e.getMessage());
+    }
+  }
+}
