@@ -1,0 +1,147 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+$data = "";
+$types = "";
+$Ids ="";
+if(!isset($_SESSION['user_name'])){
+   header('location:index.php');
+}
+$email = $_SESSION['user_email'];
+// $data = (isset($_SESSION['Iddata']));   
+
+// $_SESSION['Iddata'] = "$data";
+
+$tempId = $_SESSION['TempId'];
+
+
+if(isset($_GET["data1"]))
+{
+  $data = $_GET["data1"];
+  // echo $data;
+}
+// echo $email;
+$sql = "SELECT * FROM `feed` WHERE Id = '$data'";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) 
+{
+    while($row = mysqli_fetch_assoc($result)) 
+    {
+        $types = $row['Type'];
+        $Ids = $row['Authentication_token'];
+        $_SESSION['UniqId'] = $Ids;
+    }
+}
+if($types == "Input")
+{
+
+  header("location:chart.php?data1=$data");
+
+}
+if(isset($_GET["data2"]))
+{
+  $data = $_GET["data2"];
+  // echo $data;
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>ViewFeed</title>
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="css/style1.css">
+
+</head>
+<body>
+   
+<div class="container" style = " width: 100%; background-image: url('img/bg.jpg'); background-size: cover;
+  background-position: center;">
+
+   <div class="content">
+   <!-- <a href ="user_page.php"><i style="font-size:24px; color: red;float:right;cursor:pointer;" class="fa">&#xf00d;</i></a> -->
+      <a href="Feed.php" class="btn">Back</a>
+      <a href="#.php?data=1" class="btn">Acivate</a>
+      <a href="#.php?data=0" class="btn">Deacivate</a>
+
+      <!-- <a href="./Feed.php?datas=<?php echo $data; ?>" class="btn">Add Feed</a> -->
+      
+      <br><br>
+
+        <h1>Uid List</h1>
+
+      <br>
+      <table>
+        <tr>
+          <th>Sr.No</th>
+          <th>User Uid</th>
+          <th>Template Uid</th>
+
+          <th>Feed Uid</th>
+        
+        </tr>
+       
+        <tr>
+          <td><?php static $sr = 1;
+          echo $sr;
+          $sr++; ?></td>
+          
+         
+
+          <td> <?php   
+                $sql = "SELECT `Authentication_token` FROM `userinfo` WHERE email = '$email'";
+                $result = mysqli_query($conn, $sql);
+                
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) 
+                    { 
+                        echo $row['Authentication_token'];
+                    }
+                }
+            ?></td></td>
+          <td> <?php   $sql = "SELECT `Authentication_token` FROM `templatelist` WHERE Id = '$tempId'";
+                $result = mysqli_query($conn, $sql);
+                
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) 
+                    { 
+                        echo $row['Authentication_token'];
+                    }
+                }
+            ?></td></td>
+
+          
+            <td>
+            <?php  
+            echo $data;
+            $sql = "SELECT `Authentication_token` FROM `feed` WHERE Id = '$data'";
+                $result = mysqli_query($conn, $sql);
+                
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) 
+                    { 
+                        echo $row['Authentication_token'];
+                    }
+                }
+            ?></td>
+   
+        </tr>
+                
+      
+    </table>
+
+ <br>
+ 
+     
+   </div>
+
+</div>
+
+</body>
+</html>
