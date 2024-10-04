@@ -1,0 +1,12 @@
+import pyautogui as p
+import time
+
+
+
+
+
+time.sleep(2)
+for i in range(100000):
+ 
+    p.typewrite("Hi Omkyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    p.press("enter")
