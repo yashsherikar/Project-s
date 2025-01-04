@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html>  
+<head> 
+    <title>Weather Page</title> 
+    <link rel="stylesheet" href="style1.css"> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">  
+</head> 
+  
+<body> 
+  <div class="container" style= "width: 40%">
+        <div class="weather-side"style=" width: 100%;">
+            <div class="weather-gradient"></div>
+            <div class="date-container" style ="margin-left: 20%;text-align: center;">
+             <h4 style="margin : 0;">Welcome to the Weather Web App</h4>
+                <h4 style="margin : 0;">Technologies Used: </h4>
+                <h6 style="margin : 0;">HTML, CSS, JS, Java, Servlet, JSP, OpenWeather API</h6>
+            </div>
+            <div class="weather-container">
+                <h1 class="weather-temp"></h1>
+                <span class="weather-icon"><img style ="width:50%;margin-left:30%;"src="images/Weather-PNG-Photos.png" alt="Img" id="weather-icon"></span>
+                <h3 class="weather-desc"></h3>
+                <form action="MyServlet" method="post" class="searchInput">
+            		<input style="background: #fff;width:92%;"class="location-input" type="text" placeholder="Enter City Name" id="searchInput"  name="city"/>
+           			<button style="background: #fff;width:35px; " id="searchButton"><i  class="fa-solid fa-magnifying-glass"></i></button>
+      			</form>
+            </div>
+              
+        </div>
+        
+            
+        </div>
+
+    </div>
+
+    <script src="myscript.js">	  </script>
+            
+</body> 
+  
+</html>
